@@ -9,5 +9,5 @@ Para ejecutar el programa simplemente abre una terminal en la carpeta donde se e
 
 Una vez en la carpeta portadora de los archivos, ejecuta el siguiente comando en la terminal: 
 `
-python3 pyCalc.py
+python3 pyBasicCalc.py
 `
