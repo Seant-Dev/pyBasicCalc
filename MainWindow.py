@@ -149,24 +149,25 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.pushButton_0.clicked.connect(self.valor_0)
-        self.pushButton_1.clicked.connect(self.valor_1)
-        self.pushButton_2.clicked.connect(self.valor_2)
-        self.pushButton_3.clicked.connect(self.valor_3)
-        self.pushButton_4.clicked.connect(self.valor_4)
-        self.pushButton_5.clicked.connect(self.valor_5)
-        self.pushButton_6.clicked.connect(self.valor_6)
-        self.pushButton_7.clicked.connect(self.valor_7)
-        self.pushButton_8.clicked.connect(self.valor_8)
-        self.pushButton_9.clicked.connect(self.valor_9)
-        self.pushButton_dot.clicked.connect(self.valor_dot)
+        self.pushButton_0.clicked.connect(lambda: self.valor(self.pushButton_0.text()))
+        self.pushButton_1.clicked.connect(lambda: self.valor(self.pushButton_1.text()))
+        self.pushButton_2.clicked.connect(lambda: self.valor(self.pushButton_2.text()))
+        self.pushButton_3.clicked.connect(lambda: self.valor(self.pushButton_3.text()))
+        self.pushButton_4.clicked.connect(lambda: self.valor(self.pushButton_4.text()))
+        self.pushButton_5.clicked.connect(lambda: self.valor(self.pushButton_5.text()))
+        self.pushButton_6.clicked.connect(lambda: self.valor(self.pushButton_6.text()))
+        self.pushButton_7.clicked.connect(lambda: self.valor(self.pushButton_7.text()))
+        self.pushButton_8.clicked.connect(lambda: self.valor(self.pushButton_8.text()))
+        self.pushButton_9.clicked.connect(lambda: self.valor(self.pushButton_9.text()))
+        self.pushButton_dot.clicked.connect(lambda: self.valor(self.pushButton_dot.text()))
 
-        self.pushButton_back.clicked.connect(self.back)
-        self.pushButton_div.clicked.connect(self.division)
-        self.pushButton_prod.clicked.connect(self.prod)
-        self.pushButton_res.clicked.connect(self.subtraction)
-        self.pushButton_sum.clicked.connect(self.sum)
+        self.pushButton_div.clicked.connect(lambda: self.valor(self.pushButton_div.text()))
+        self.pushButton_prod.clicked.connect(lambda: self.valor('*'))
+        self.pushButton_res.clicked.connect(lambda: self.valor(self.pushButton_res.text()))
+        self.pushButton_sum.clicked.connect(lambda: self.valor(self.pushButton_sum.text()))
+
         self.pushButton_pow.clicked.connect(self.valor_pow)
+        self.pushButton_back.clicked.connect(self.back)
         self.pushButton_clear.clicked.connect(self.clear)
         self.pushButton_eq.clicked.connect(self.eq)
         self.pushButton_close.clicked.connect(QtWidgets.qApp.exit)
@@ -206,94 +207,10 @@ class Ui_MainWindow(object):
         self.actionAyuda.setText(_translate("MainWindow", "Ayuda"))
         self.actionAcerca_de.setText(_translate("MainWindow", "Acerca de"))
 
-    def valor_0(self):
+    def valor(self, valor):
         self.statusbar.showMessage("")
         self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_0.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_1(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_1.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_2(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_2.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_3(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_3.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_4(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_4.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_5(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_5.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_6(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_6.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_7(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_7.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_8(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_8.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_9(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_9.text()
-        self.lineEdit.setText(self.entrada)
-
-    def valor_dot(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_dot.text()
-        self.lineEdit.setText(self.entrada)
-
-    def sum(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_sum.text()
-        self.lineEdit.setText(self.entrada)
-
-    def subtraction(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_res.text()
-        self.lineEdit.setText(self.entrada)
-
-    def prod(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += '*'
-        self.lineEdit.setText(self.entrada)
-
-    def division(self):
-        self.statusbar.showMessage("")
-        self.entrada = self.lineEdit.text()
-        self.entrada += self.pushButton_div.text()
+        self.entrada += valor
         self.lineEdit.setText(self.entrada)
 
     def valor_pow(self):
@@ -334,7 +251,6 @@ class Ui_MainWindow(object):
                             " se limpiara automaticamente.")
         msg.setStandardButtons(QMessageBox.Ok)
         msg.exec()
-
 
     def acerdaDe(self):
         msg = QMessageBox()
